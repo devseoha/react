@@ -1,18 +1,21 @@
 import Head from "next/head";
-import { useEffect } from "react";
-import { Axios } from "axios";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export default function Home() {
-  const API_URL = "http://localhost:8888/reservation/test";
+  const [list, setList] = useState([]);
 
-  function getData() {
-    Axios.get(API_URL).then((res) => {
+  const API_URL =
+    "http://makeup-api.herokuapp.com/api/v1/products/json?brand=maybelline";
+
+  async function getData() {
+    await axios.get(API_URL).then((res) => {
       console.log(res);
     });
   }
 
-  useEffect(() => {
-    getData();
+  useEffect(async () => {
+    await getData();
   }, []);
 
   return (
