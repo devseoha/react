@@ -1,3 +1,3 @@
 export default function about() {
-  return <div>[dd]</div>;
+  return <div>오 신기해</div>;
 }
